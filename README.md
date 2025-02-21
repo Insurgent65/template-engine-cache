@@ -1,5 +1,5 @@
-Template engine with cache and !cache - Neutral TS
-==================================================
+Rust template engine with cache and !cache
+==========================================
 
 Example of the Neutral TS cache in the terminal.
 
