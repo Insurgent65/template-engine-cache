@@ -1,0 +1,50 @@
+{:*
+    {:cache; /expires/addtoid/only_custom_id/ >> ... :} {:* expires in seconds *:}
+    {:cache; /expires/addtoid/ >> ... :}
+    {:cache; /expires/ >> ... :}
+    {:!cache; ... :} {:* exclude from cache *:}
+*:}
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Test Neutral TS cache</title>
+    </head>
+    <body>
+    <pre>
+        Outside cache : {:;CONTEXT->GET->inject:} vs {:;inject:}
+        Outside filter: {:&;CONTEXT->GET->inject:} vs {:&;inject:}
+    </pre>
+    {:cache; /10/{:;inject:}/ >>
+        {:^filled; CONTEXT->GET->exit >>
+            {:exit; {:;CONTEXT->GET->exit:} :}
+        :}
+        {:^;:}
+        <pre>
+            Arguments:
+            {:each; CONTEXT->GET key val >>
+                {:^;:}
+                {:&;key:} = {:;val:}
+                {:^;:}
+            :}
+            ----------------------------------------------------
+            Inject ....: {:;inject:} vs {:;CONTEXT->GET->inject:}
+            In cache ..: {:date; %H:%M:%S :} (10)
+            No cache ..: {:!cache; {:date; %H:%M:%S :} (!) :}
+            Nesting ...: {:cache; /20/ >>
+                {:date; %H:%M:%S :} (20) / {:!cache; {:date; %H:%M:%S :} (!) :}
+            :}
+            Crazy .....: {:!cache;
+                {:cache; /30/ >>
+                    {:date; %H:%M:%S :} (30) / {:cache; /40/ >>
+                        {:date; %H:%M:%S :} (40) / {:cache; /50/ >>
+                            {:date; %H:%M:%S :} (50) ({:;inject:}) / {:!cache;
+                                {:date; %H:%M:%S :} (!) {:;inject:}
+                            :}
+                        :}
+                    :}
+                :}
+            :}
+        </pre>
+    :}
+    </body>
+</html>
