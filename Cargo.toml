@@ -4,5 +4,5 @@ version = "0.1.0"
 edition = "2024"
 
 [dependencies]
-neutralts = "=1.2.0-beta1"
+neutralts = "=1.2.0-beta3"
 serde_json = "1.0"
