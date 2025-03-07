@@ -62,15 +62,11 @@ Or exclude parts of the cache, the previous example would be much better like th
             <title>Cache</title>
         </head>
         <body>
-            {:cache; /120/ >>
-                <div>{:code; ... :}</div>
-            :}
+            <div>{:code; ... :}</div>
             {:!cache;
                 {:date; %H:%M:%S :}
             :}
-            {:cache; /120/ >>
-                <div>{:code; ... :}</div>
-            :}
+            <div>{:code; ... :}</div>
         </body>
     </html>
 :}
