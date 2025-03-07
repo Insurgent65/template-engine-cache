@@ -42,17 +42,13 @@ The cache is modular, allowing only parts of the template to be included in the 
         <title>Cache</title>
     </head>
     <body>
-
         {:cache; /120/ >>
             <div>{:code; ... :}</div>
         :}
-
         <div>{:date; %H:%M:%S :}</div>
-
         {:cache; /120/ >>
             <div>{:code; ... :}</div>
         :}
-
     </body>
 </html>
 ```
@@ -66,8 +62,14 @@ Or exclude parts of the cache, the previous example would be much better like th
             <title>Cache</title>
         </head>
         <body>
+            {:cache; /120/ >>
+                <div>{:code; ... :}</div>
+            :}
             {:!cache;
                 {:date; %H:%M:%S :}
+            :}
+            {:cache; /120/ >>
+                <div>{:code; ... :}</div>
             :}
         </body>
     </html>
