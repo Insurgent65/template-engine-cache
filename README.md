@@ -144,7 +144,6 @@ The example template is in the `neutral-cache-test/tpl` directory with the name 
 
 Links
 -----
-
 - [Repository](https://gitlab.com/neutralfw/neutralts)
 - [Crate](https://crates.io/crates/neutralts)
 - [Docs](https://docs.rs/neutralts/latest/neutralts/doc/index.html)
